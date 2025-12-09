@@ -99,7 +99,7 @@ function receiveDataFromUnity(jsonObj) {
 window.addEventListener('message', function(event) {
     const message = event.data;
  
-    if (message.type === 'UnitySelectedComponentData') {
+    if (message.type === 'UnityReady') {
         console.log("Unity is ready to start in ASPU:", message);
     }
 });
@@ -110,7 +110,7 @@ window.addEventListener('message', function(event) {
 window.addEventListener('message', function(event) {
     const message = event.data;
 
-    if (message.type === 'UnityData') {
+    if (message.type === 'UnitySelectedComponentData') {
         console.log("Received data from Unity to home:", message.data);
         receiveDataFromUnity(message.data);  // ✔ Use object directly
     }
